@@ -1,0 +1,15 @@
+gitUrl=https://github.com/jnsierra/2tf-parent.git
+
+pathClone=/opt/codigo/workspace/
+
+pathDespliegue=/opt/despliegues/
+
+pathShell=/opt/shell/execute.sh
+
+finalPathDockerFiles=/home/nicolas/dostf/
+
+
+
+nexus.host=192.168.8.14
+nexus.port=8081
+
