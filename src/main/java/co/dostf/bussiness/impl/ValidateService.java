@@ -53,8 +53,8 @@ public class ValidateService implements IValidateService {
 	}
 
 	private CarpetaDespliegueDto validaArchivosDespliegue(CarpetaDespliegueDto carpeta) {
-		//client-config.wsdd
 		logger.info("Url en la cual se va ha buscar: " + carpeta.getUrl());
+		//client-config.wsdd
 		File config = new File(carpeta.getUrl().concat("/cuest_client-config.wsdd"));
 		if(!config.exists()) {
 			carpeta.setValido(Boolean.FALSE);
@@ -67,6 +67,13 @@ public class ValidateService implements IValidateService {
 			carpeta.setMotivo("No existe el archivo wsdd info info_client-config");
 			return carpeta;
 		}
+		File configTres = new File(carpeta.getUrl().concat("/prosp_client-config.wsdd"));
+		if(!configTres.exists()) {
+			carpeta.setValido(Boolean.FALSE);
+			carpeta.setMotivo("No existe el archivo wsdd info prosp_client-config");
+			return carpeta;
+		}
+		
 		//configurationInfo.properties
 		File propertiesInfo = new File(carpeta.getUrl().concat("/cuest_configuration.properities"));
 		if(!propertiesInfo.exists()) {
@@ -81,6 +88,13 @@ public class ValidateService implements IValidateService {
 			carpeta.setMotivo("No existe el archivo  info_configurationInfo.properties");
 			return carpeta;
 		}
+		File propertiesPros = new File(carpeta.getUrl().concat("/prosp_configurationInfo.properities"));
+		if(!propertiesPros.exists()) {
+			carpeta.setValido(Boolean.FALSE);
+			carpeta.setMotivo("No existe el archivo  prosp_configurationInfo.properties");
+			return carpeta;
+		}
+		
 		//seguridad.properties
 		File security = new File(carpeta.getUrl().concat("/cuest_seguridad.properties"));
 		if(!security.exists()) {
@@ -93,6 +107,12 @@ public class ValidateService implements IValidateService {
 		if(!securityDos.exists()) {
 			carpeta.setValido(Boolean.FALSE);
 			carpeta.setMotivo("No existe el archivo info_seguridad.properties");
+			return carpeta;
+		}
+		File securityTres = new File(carpeta.getUrl().concat("/prosp_seguridad.properties"));
+		if(!securityTres.exists()) {
+			carpeta.setValido(Boolean.FALSE);
+			carpeta.setMotivo("No existe el archivo prosp_seguridad.properties");
 			return carpeta;
 		}
 		return carpeta;

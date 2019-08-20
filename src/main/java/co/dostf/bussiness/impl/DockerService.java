@@ -135,7 +135,7 @@ public class DockerService implements IDockerService {
 		archivo.append("    build:\n");
 		archivo.append("      context: nginx\n");
 		archivo.append("    ports:\n");
-		archivo.append("       - \"8090:80\"\n");
+		archivo.append("       - \"5000:80\"\n");
 		archivo.append("    networks:\n");
 		archivo.append("      - net\n");
 		return Boolean.TRUE;
